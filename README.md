@@ -10,7 +10,7 @@ How It Works
 In this collection, items enclosed in `{{ }}` are variables (e.g., `{{application_id}}`). You can either replace these placeholders with your own values or set them as variables in Postman. For more information about Postman Collection variable, visit: https://learning.postman.com/docs/sending-requests/variables/variables/#defining-collection-variables. 
 
 ## **Authentication**  
- you need to use Bearer Authentication with a JWT generated from your Application ID and Private Key. 
+You need to use Bearer Authentication with a JWT generated from your Application ID and Private Key. 
 
 JWT Generation Options:  
 1. You can create a JWT using the Vonage's onlie tool: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-vonage-api-online-tool-to-generate-a-jwt.
@@ -38,7 +38,7 @@ How to Use
 5. **Import the Collection**  
    Import the `Vonage Video API.postman_collection.json` into Postman. For guidance, check out: https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-postman-data.
 6. **Add JWT**  
-   You need to generate a JWT for all the REST API request for Vonage's Video API. For a JWT generation, please see ????????. Save your JWT in the `jwt` Collection variable or replace `{{jwt}}` in the Auth tab with your token.
+   You need to generate a JWT for all the REST API request for Vonage's Video API. For a JWT generation, please see https://github.com/ydumburs/vonage-video-api-postman-collection/blob/main/README.md#authentication. Save your JWT in the `jwt` Collection variable or replace `{{jwt}}` in the Auth tab with your token.
 7. **Configure Collection variables (optional)**  
    Add your IDs as needed to the Collection variables and save your changes. Refer to: https://community.postman.com/t/how-do-i-set-a-collection-variable/5466 for instructions.
 8. **Send Requests**  
