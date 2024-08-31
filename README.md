@@ -14,7 +14,7 @@ You need to use Bearer Authentication with a JWT generated from your Application
 
 JWT Generation Options:  
 1. You can create a JWT using the Vonage's onlie tool: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-vonage-api-online-tool-to-generate-a-jwt.
-2. You can also create a JWT using the Vonage server SDK: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-server-sdks. For convenience, configure the endpoint using the SDK and use the `Generate a JWT` request at the top of the Collection. This request includes a Postman post-request script that automatically stores the returned JWT in a Collection variable upon completion.
+2. You can also create a JWT using the Vonage server SDK: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-server-sdks. For convenience, configure the endpoint using the SDK. Here's a sample Node.js script for JWT generation https://github.com/ydumburs/vonage-node-generate-jwt. Then use the `Generate a JWT` request at the top of the Collection. This request includes a Postman post-request script that automatically stores the returned JWT in a Collection variable upon completion.
 ```
 // Postman Post-request script
 const response = pm.response.json(); 
