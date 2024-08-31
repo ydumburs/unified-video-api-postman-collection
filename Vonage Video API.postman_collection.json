@@ -1,0 +1,1877 @@
+{
+	"info": {
+		"_postman_id": "e8aba460-6211-4e96-924e-e8b028f33f79",
+		"name": "Vonage Video API",
+		"description": "[https://developer.vonage.com/en/api/video](https://developer.vonage.com/en/api/video)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12740096"
+	},
+	"item": [
+		{
+			"name": "Archives",
+			"item": [
+				{
+					"name": "Get archives",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Get an archive",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive/{{archive_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive",
+								"{{archive_id}}"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Create an archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sessionId\": \"{{session_id}}\",\n    \"layout\": {\n        \"type\": \"bestFit\",\n        \"screenshareType\": \"pip\"\n    },\n    \"name\": \"archive_1\",\n    \"outputMode\": \"composed\",\n    \"resolution\": \"1920x1080\",\n    \"streamMode\": \"manual\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an archive",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive/{{archive_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive",
+								"{{archive_id}}"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a stream into an archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"addStream\": \"{{stream_id}}\",\n   \"hasAudio\": true,\n   \"hasVideo\": true\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive/{{archive_id}}/streams",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive",
+								"{{archive_id}}",
+								"streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a stream from an archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"removeStream\": \"{{stream_id}}\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive/{{archive_id}}/streams",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive",
+								"{{archive_id}}",
+								"streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop an archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive/{{archive_id}}/stop",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive",
+								"{{archive_id}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change the layout of an archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"type\": \"bestFit\",\n   \"screenshareType\": \"bestFit\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/archive/{{archive_id}}/layout",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"archive",
+								"{{archive_id}}",
+								"layout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Moderation",
+			"item": [
+				{
+					"name": "Disconnect a client",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/connection/{{connection_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"connection",
+								"{{connection_id}}"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Mute a stream",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sessionId\": \"{{session_id}}\",\n    \"layout\": {\n        \"type\": \"bestFit\",\n        \"screenshareType\": \"pip\"\n    },\n    \"name\": \"archive_1\",\n    \"outputMode\": \"composed\",\n    \"resolution\": \"1920x1080\",\n    \"streamMode\": \"manual\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/stream/{{stream_id}}/mute",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"stream",
+								"{{stream_id}}",
+								"mute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mute all streams",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sessionId\": \"{{session_id}}\",\n    \"layout\": {\n        \"type\": \"bestFit\",\n        \"screenshareType\": \"pip\"\n    },\n    \"name\": \"archive_1\",\n    \"outputMode\": \"composed\",\n    \"resolution\": \"1920x1080\",\n    \"streamMode\": \"manual\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/mute",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"mute"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Create a session",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"archiveMode\" : \"manual\",\n    \"p2p.preference\" : \"disabled\",\n    \"e2ee\" : \"false\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/session/create",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"session",
+								"create"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a stream",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/stream/{{stream_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"stream",
+								"{{stream_id}}"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Get streams",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/stream/",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"stream",
+								""
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Change the layout of a stream",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"items\": [\n      {\n         \"id\": \"{{stream_id}}\",\n         \"layoutClassList\": [\n            \"full\"\n         ]\n      }\n   ]\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/stream/",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"stream",
+								""
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Signaling",
+			"item": [
+				{
+					"name": "Send a signal to all participants",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bea",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\" : \"boo\",\n    \"data\" : \"foo\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/signal",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"signal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send a signal to a specific participant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bea",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\" : \"boo\",\n    \"data\" : \"foo\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/connection/{{connection_id}}/signal",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"connection",
+								"{{connection_id}}",
+								"signal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SIP",
+			"item": [
+				{
+					"name": "Initiate an outbound SIP call",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bea",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"token\": \"{{token}}\",\n  \"sip\": {\n    \"uri\": \"sip:000@sip.nexmo.com\",\n    \"from\": \"000@nexmo.com\",\n    \"headers\": {\n      \"headerKey\": \"headerValue\"\n    },\n    \"auth\": {\n      \"username\": \"\",\n      \"password\": \"\"\n    },\n    \"secure\": false,\n    \"video\": false,\n    \"observeForceMute\": false\n  }\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/dial",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"dial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Play DTMF tones into a SIP call",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bea",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"digits\": \"1713\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/play-dtmf",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"play-dtmf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Play DMTF tones into a specific connection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bea",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"digits\": \"1713\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/session/{{session_id}}/connection/{{connection_id}}/play-dtmf",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"session",
+								"{{session_id}}",
+								"connection",
+								"{{connection_id}}",
+								"play-dtmf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Broadcast",
+			"item": [
+				{
+					"name": "List Live Broadcasts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Start a Broadcast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sessionId\": \"{{session_id}}\",\n   \"layout\": {\n      \"type\": \"bestFit\",\n      \"screenshareType\": \"horizontalPresentation\"\n   },\n   \"maxDuration\": 5400,\n   \"outputs\": {\n      \"hls\": {\n         \"dvr\": true,\n         \"lowLatency\": false\n      },\n      \"rtmp\": [\n         {\n            \"id\": \"foo\",\n            \"serverUrl\": \"rtmp://bar\",\n            \"streamName\": \"baz\"\n         }\n      ]\n   },\n   \"resolution\": \"1920x1080\",\n   \"streamMode\": \"manual\",\n   \"multiBroadcastTag\": \"\",\n   \"maxBitrate\": \"2000000\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Broadcast",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast/{{broadcast_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast",
+								"{{broadcast_id}}"
+							]
+						},
+						"description": "Create a new video object in the account. Note: this does not ingest a video file - use the Dynamic Ingest API for ingestion"
+					},
+					"response": []
+				},
+				{
+					"name": "Stop a Broadcast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast/{{broadcast_id}}/stop",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast",
+								"{{broadcast_id}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change layout of a live broadcast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"type\": \"bestFit\",\n   \"screenshareType\": \"bestFit\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast/{{broadcast_id}}/layout",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast",
+								"{{broadcast_id}}",
+								"layout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add streams in a live broadcast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"addStream\": \"{{stream_id}}\",\n   \"hasAudio\": true,\n   \"hasVideo\": true\n}\n\n"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast/{{broadcast_id}}/streams",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast",
+								"{{broadcast_id}}",
+								"streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove streams from a live broadcast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"removeStream\": \"{{stream_id}}\"\n}\n\n"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/broadcast/{{broadcast_id}}/streams",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"broadcast",
+								"{{broadcast_id}}",
+								"streams"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Live Captions",
+			"item": [
+				{
+					"name": "Start Captions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sessionId\": \"{{session_id}}\",\n   \"token\": \"{{token}}\",\n   \"languageCode\": \"en-US\",\n   \"maxDuration\": 1800,\n   \"partialCaptions\": true,\n   \"statusCallbackUrl\": \"{{callback_url}}\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/captions",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"captions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Captions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sessionId\": \"{{session_id}}\",\n   \"token\": \"{{token}}\",\n   \"languageCode\": \"en-US\",\n   \"maxDuration\": 1800,\n   \"partialCaptions\": true,\n   \"statusCallbackUrl\": \"{{callback_url}}\"\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/captions/{{caption_id}}/stop",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"captions",
+								"{{caption_id}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audio Connector",
+			"item": [
+				{
+					"name": "Start an audio connector connection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sessionId\": \"{{session_id}}\",\n   \"token\": \"{{token}}\",\n   \"websocket\": {\n      \"uri\": \"wss://example.com/ws-endpoint\",\n      \"streams\": [\n         \"streamId-1\",\n         \"streamId-2\"\n      ],\n      \"headers\": {\n         \"property1\": \"string\",\n         \"property2\": \"string\"\n      },\n      \"audioRate\": 8000\n   }\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/connect",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"connect"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Experience Composer",
+			"item": [
+				{
+					"name": "Start an Experience Composer Session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sessionId\": \"{{session_id}}\",\n   \"token\": \"{{token}}\",\n   \"url\": \"https://example.com/\",\n   \"maxDuration\": 1800,\n   \"resolution\": \"640x480\",\n   \"properties\": {\n      \"name\": \"Composed stream for Live event #1\"\n   }\n}"
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/render",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"render"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get experience composers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/render",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"render"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Experience Composer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/render/{{experience_composer_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"render",
+								"{{experience_composer_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Experience Composer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://video.api.vonage.com/v2/project/{{application_id}}/render/{{experience_composer_id}}",
+							"protocol": "https",
+							"host": [
+								"video",
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"v2",
+								"project",
+								"{{application_id}}",
+								"render",
+								"{{experience_composer_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generate a JWT",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json(); ",
+							"if (response.token) {",
+							"    pm.collectionVariables.set(\"jwt\", response.token); ",
+							"    console.log(\"JWT has been set to collection variable:\", response.token);",
+							"} else {",
+							"    console.error(\"JWT token not found in the response\");",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/generate-jwt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"generate-jwt"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "application_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "callback_url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "session_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "stream_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "archive_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "connection_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "caption_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "broadcast_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "experience_composer_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
