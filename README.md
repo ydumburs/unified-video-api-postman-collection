@@ -34,7 +34,7 @@ if (response.token) {
 ```
 // Postman Pre-request script
 /**
- * OpenTok Video API - Postman Pre-request Script
+ * Postman Pre-request Script
  * Author: Yukari Dumburs (Created: 17 Jul 2024, Updated: 1 Sep 2024)
  */
 
