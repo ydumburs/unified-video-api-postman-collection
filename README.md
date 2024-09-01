@@ -10,11 +10,13 @@ How It Works
 In this collection, items enclosed in `{{ }}` are variables (e.g., `{{application_id}}`). You can either replace these placeholders with your own values or set them as variables in Postman. For more information about Postman Collection variable, visit: https://learning.postman.com/docs/sending-requests/variables/variables/#defining-collection-variables. 
 
 ## **Authentication**  
-You need to use Bearer Authentication with a JWT generated from your Application ID and Private Key. 
-
-JWT Generation Options:  
-1. You can create a JWT using the Vonage's onlie tool: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-vonage-api-online-tool-to-generate-a-jwt.
-2. You can also create a JWT using the Vonage server SDK: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-server-sdks. For convenience, configure the endpoint using the SDK. Here's a sample Node.js script for JWT generation https://github.com/ydumburs/vonage-node-generate-jwt. Then use the `Generate a JWT` request at the top of the Collection. This request includes a Postman post-request script that automatically stores the returned JWT in a Collection variable upon completion.
+You need to use Bearer Authentication with a JWT generated from your Application ID and Private Key. The JWT is generated using your Application ID and Private key.  
+  
+You can generate a JWT using one of the following methods: 
+1. **Vonage's onlie tool**  
+   Use the tool https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-vonage-api-online-tool-to-generate-a-jwt to generate your JWT.
+2. **Server-Side**  
+   Use the Vonage Server SDK: https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-server-sdks. For convenience, you can configure the endpoint as shown in this Node.js script https://github.com/ydumburs/vonage-node-generate-jwt. Then, use the `Server-side` request in `Generate a JWT` folder at the top of the Collection. This request includes a Postman post-request script that automatically stores the returned JWT in a Collection variable `jwt` upon completion.
 ```
 // Postman Post-request script
 const response = pm.response.json(); 
@@ -25,7 +27,56 @@ if (response.token) {
     console.error("JWT token not found in the response");
 }
 ```
-3. In addition to those options, there are several other ways to generate JWTs. For more information, please refer to the  https://developer.vonage.com/en/getting-started/concepts/authentication#generating-jwts
+3. **Vonage Cli**  
+   Use the Vonage Cli https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-vonage-cli-to-generate-jwts
+4. **Postman Pre-request Script**
+   Set your `Private Key` and `JTI` in a Collection variable, then use the `Postman script` in the `Generate a JWT` folder at the top of the Collection. This script generates a JWT from your credentials and encodes using the `jsrsasign` library https://github.com/kjur/jsrsasign/blob/master/jsrsasign-all-min.js. Then it sets a JWT as the Collection variable `jwt`, which is valid for 5 minutes. 
+```
+// Postman Pre-request script
+/**
+ * OpenTok Video API - Postman Pre-request Script
+ * Author: Yukari Dumburs (Created: 17 Jul 2024, Updated: 1 Sep 2024)
+ */
+
+// Load jsrsasign library safely
+var navigator = {};
+var window = {};
+eval(pm.collectionVariables.get("jsrsasign"));　// https://github.com/kjur/jsrsasign/blob/master/jsrsasign-all-min.js
+
+// Fetch required variables
+var applicationId = pm.collectionVariables.get('application_id');
+var privateKey = pm.collectionVariables.get('private_key');
+var jti = pm.collectionVariables.get('jti');
+if (!applicationId || !privateKey || !jti) {
+    throw new Error("Application ID or Private Key or jti is missing!");
+}
+var currentTimestamp = Math.floor(Date.now() / 1000);
+var expiryTimestamp = currentTimestamp + 300; // 5 minutes
+
+// Create JWT Header and Payload
+var header = {
+    "alg": "RS256",
+    "typ": "JWT"
+};
+var payload = {
+    'iat': currentTimestamp,
+    'exp': expiryTimestamp,
+    'application_id': applicationId,
+    'jti': jti
+};
+
+// Convert header and payload to JSON strings
+var sHeader = JSON.stringify(header);
+var sPayload = JSON.stringify(payload);
+
+// Generate JWT using jsrsasign
+try {
+    var sJWT = KJUR.jws.JWS.sign(header.alg, sHeader, sPayload, privateKey);
+    pm.collectionVariables.set('jwt', sJWT);
+} catch (e) {
+    throw new Error("Failed to generate JWT: " + e.message);
+}
+```
 
 How to Use
 ======================
