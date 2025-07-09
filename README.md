@@ -30,7 +30,7 @@ if (response.token) {
 3. **Vonage Cli**  
    Use the Vonage Cli https://developer.vonage.com/en/getting-started/concepts/authentication#using-the-vonage-cli-to-generate-jwts
 4. **Postman Pre-request Script**
-   Set your `Private Key` and `JTI` in a Collection variable, then use the `Postman script` in the `Generate a JWT` folder at the top of the Collection. This script generates a JWT from your credentials and encodes using the `jsrsasign` library https://github.com/kjur/jsrsasign/blob/master/jsrsasign-all-min.js. Then it sets a JWT as the Collection variable `jwt`, which is valid for 5 minutes. 
+   Set your `Application ID`, `Private Key`, and `JTI` in a Collection variable, then use the `Postman script` in the `Generate a JWT` folder at the top of the Collection. This script generates a JWT from your credentials and encodes using the `jsrsasign` library https://github.com/kjur/jsrsasign/blob/master/jsrsasign-all-min.js. Then it sets a JWT as the Collection variable `jwt`, which is valid for 5 minutes. 
 ```
 // Postman Pre-request script
 /**
