@@ -13,7 +13,7 @@ How to Use
 4. **Install Postman**  
    Download the Postman desktop app: https://www.postman.com/downloads/. You can also use the Web version: https://blog.postman.com/announcing-postman-for-the-web-now-in-open-beta/.
 5. **Import the Collection**  
-   Import the `Unified Video API.postman_collection.json` into Postman. For guidance, check out: https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-postman-data.
+   Import the `Unified Video API.postman_collection.json` into Postman from the `Import` icon. 
 6. **Configure Collection variables**  
    Click on the `Unified Video API` in the left-hand navigation tree, then select `Variables` tab in the center pane. In the `Current value` section, set your application_id, private_key, and jti. 
 7. **Generate a JWT**  
