@@ -19,7 +19,7 @@ How to Use
 7. **Generate a JWT**  
    Click on the `Generate a JWT` folder in the left-hand navigation tree, then select `Postman script`. In the center pane, click `Send`. This will run the script and generate a JWT. For more information on JWT generation, please see https://github.com/ydumburs/unified-video-api-postman-collection/blob/main/README.md#authentication. 
 8. **Send Requests**  
-   Modify the request body as needed and click the `Send` button.
+   Select any request from the left-hand navigation and click the `Send` button. Note that you may need to modify the request body as needed. Once the JWT has expired, you'll receive a `token has expired` error. To resolve this, you'll need to generate a new JWT by running the `Postman script` again.
 
 How It Works
 ======================
