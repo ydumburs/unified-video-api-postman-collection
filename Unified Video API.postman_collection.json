@@ -1936,11 +1936,6 @@
 	],
 	"variable": [
 		{
-			"key": "jwt",
-			"value": "",
-			"type": "string"
-		},
-		{
 			"key": "application_id",
 			"value": "",
 			"type": "string"
@@ -1997,6 +1992,11 @@
 		},
 		{
 			"key": "experience_composer_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
 			"value": "",
 			"type": "string"
 		},
