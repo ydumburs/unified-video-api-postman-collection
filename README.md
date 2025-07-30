@@ -1,8 +1,25 @@
 Overview
 ======================
-This Postman collection is designed for the Vonage Video API. It provides a set of pre-configured authentications and requests to interact with Vonage Video API endpoints efficiently.  
+This Postman collection is designed for the Vonage Unified Video API. It provides a set of pre-configured authentications and requests to interact with Vonage Video API endpoints efficiently.  
 
 REST API reference: https://developer.vonage.com/en/api/video
+
+How to Use
+======================
+1. **Create a Vonage Account**  
+   If you don’t have a Vonage account, sign up: https://www.vonage.co.uk/communications-apis/ to start building with free credit.
+2. **Create an Application for Video**
+   Create an application at Vonage dashboard https://dashboard.nexmo.com/applications and enable `Video` capability.
+4. **Install Postman**  
+   Download the Postman desktop app: https://www.postman.com/downloads/. You can also use the Web version: https://blog.postman.com/announcing-postman-for-the-web-now-in-open-beta/.
+5. **Import the Collection**  
+   Import the `Unified Video API.postman_collection.json` into Postman. For guidance, check out: https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-postman-data.
+6. **Configure Collection variables**  
+   Click on the `Unified Video API` in the left-hand navigation tree, then select `Variables` tab in the center pane. In the `Current value` section, set your application_id, private_key, and jti. 
+7. **Generate a JWT**  
+   Click on the `Generate a JWT` folder in the left-hand navigation tree, then select `Postman script`. In the center pane, click `Send`. This will run the script and generate a JWT. For more information on JWT generation, please see https://github.com/ydumburs/unified-video-api-postman-collection/blob/main/README.md#authentication. 
+8. **Send Requests**  
+   Modify the request body as needed and click the `Send` button.
 
 How It Works
 ======================
@@ -77,20 +94,3 @@ try {
     throw new Error("Failed to generate JWT: " + e.message);
 }
 ```
-
-How to Use
-======================
-1. **Create a Vonage Account**  
-   If you don’t have a Vonage account, sign up: https://www.vonage.co.uk/communications-apis/ to start building with free credit.
-2. **Create an Application for Video**
-   Create an application at Vonage dashboard https://dashboard.nexmo.com/applications and enable `Video` option.
-4. **Install Postman**  
-   Download the Postman desktop app: https://www.postman.com/downloads/. You can also use the Web version: https://blog.postman.com/announcing-postman-for-the-web-now-in-open-beta/.
-5. **Import the Collection**  
-   Import the `Vonage Video API.postman_collection.json` into Postman. For guidance, check out: https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-postman-data.
-6. **Add JWT**  
-   You need to generate a JWT for all the REST API request for Vonage's Video API. For a JWT generation, please see https://github.com/ydumburs/vonage-video-api-postman-collection/blob/main/README.md#authentication. Save your JWT in the `jwt` Collection variable or replace `{{jwt}}` in the Auth tab with your token.
-7. **Configure Collection variables (optional)**  
-   Add your IDs as needed to the Collection variables and save your changes. Refer to: https://community.postman.com/t/how-do-i-set-a-collection-variable/5466 for instructions.
-8. **Send Requests**  
-   Modify the request body as needed and click the `Send` button.
